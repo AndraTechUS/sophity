@@ -1,13 +1,18 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :email, 'What is your email address?'%>
-      <%= f.email_field :email, class: 'form-control' %>
+  <section>
+    <div class="hc-results-wrapper card-fixed">
+      <div class="hc-results-actions-wrapper card-rise">
+        <div class="hc-results-header">
+          <h2>Welcome to the Health Check!</h2>
+        </div>
+        <%= form_for(:session, url: login_path) do |f| %>
+
+        <%= f.label :email, 'What is your email address?'%>
+        <%= f.email_field :email, class: 'form-control' %>
 
 
-      <%= f.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
-
-  </div>
-</div>
+        <%= f.submit "Submit", class: "clickable" %>
+      <% end %>
+      </div>
+    </div>
+  </section>

@@ -1,40 +1,44 @@
 <section id="hc-results-section" class="hc-results-section">
-  <div class="hc-results-wrapper">
+  <div class="hc-results-wrapper card-fixed">
     <div class="card-rise">
       <div class="hc-results-caption">Your Score</div>
       <div class="hc-results-score"><%= @gradeLetter %></div>
     </div>
+
+    <div class="hc-results-actions-wrapper card-rise">
+      <div class="hc-results-header">
+        <h2>Need More Information?</h2>
+        <p>Sophity will use your Health Check responses to produce a complete <em>Sophity Services Health Check Report</em>. You are also eligible for a one-hour review of the results.</p>
+        <p>Introduce yourself below to get your complete report and to schedule your session with the Sophity team.</p>
+      </div>
+
+      <div class="hc-user-info">
+        <%= form_for(@participant) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', required: true %>
+        <%= f.label :job_title %>
+        <%= f.text_field :job_title, class: 'form-control', required: true %>
+        <%= f.label :company %>
+        <%= f.text_field :company, class: 'form-control', required: true %>
+        <%= f.label :phone %>
+        <%= f.text_field :phone, class: 'form-control', required: true %>
+        <div class="hc-phone-checkbox">
+          <%= f.check_box :send_notification, class: 'hc-phone-inner' %>
+          <%= f.label I18n.t(:send_notification), class: 'hc-phone-inner'%> <br>
+        </div>
+        <%= f.submit 'REQUEST REPORT', id: 'hc-report-button', class: 'clickable' %>
+        <% end %>
+      </div>
+
+      <div class="hc-report-response modal card-fixed collapsed">
+        <h2>Done!</h2>
+        <p><strong>Check your email:</strong> your report is on the way!</p>
+        <p>Can't wait? Download a copy <strong><a href="#">here.</a></strong></p>
+    </div>
   </div>
-
- <div class="hc-results-header">
-	<h2>Want More Detail?</h2>
-	<p>Using your Health Check responses as a guide, Sophity will create and send you a personalized Professional Services Road Map, and contact you for a free 1-hour consultation to discuss your results.</p>
-	<p>Introduce yourself below to request your Road Map.</p>
-</div>
-          
-
-<div class="hc-user-info">
-	<%= form_for(@participant) do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name, class: 'form-control' %>
-	<%= f.label :job_title %>
-	<%= f.text_field :job_title, class: 'form-control' %>
-	 <%= f.label :company %>
-	<%= f.text_field :company, class: 'form-control' %>
-	 <%= f.label :phone %>
-	<%= f.text_field :phone, class: 'form-control' %>
-	 <div class="hc-phone-checkbox">
-	  <%= f.check_box :send_notification, class: 'hc-phone-inner' %>
-	  <%= f.label I18n.t(:send_notification), class: 'hc-phone-inner'%> <br>
-	</div>	
-	<%= f.submit 'REQUEST REPORT', class: 'clickable' %>
-	<% end %>
-</div>
-
+  <div class="hc-results-links card-rise">
+    <h3>What's Next?</h3>
+    <%= link_to "Take Another Health Check", "#" %>
+    <%= link_to "Back to Sophity", '#' %>
+  </div>
 </section>
-
-
-    
-
-
-   
